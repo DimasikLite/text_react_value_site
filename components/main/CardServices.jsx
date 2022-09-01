@@ -1,29 +1,35 @@
 import MyButton from '@components/UI/MyButton'
+import React, { useMemo } from 'react'
+
+const memoPrices = (item) => {
+    if(item.summOld) {
+        return (
+            <div className="flex flex-col justify-end">
+                <div className="text-red-600 text-xl font-semibold">{Math.round((item.summNew - item.summOld) / item.summOld * 100)}%</div>
+                <div className="text-2xl font-bold">от {item.summNew} р</div>
+                <div className="text-lg px-1 relative w-max" style={{ color: '#788497', textDecoration: 'line-through' }}>
+                    <div>от {item.summOld} р</div>
+                    <div className="absolute top-1/2 bottom-1/2 left-0 right-0 h-0.5 bg-red-600"></div>
+                </div>
+                <div className="text-sm" style={{ color: '#788497' }}>Предоплата {item.preSumm}</div>
+            </div>
+        )
+    } else {
+        return (
+            <div className="flex flex-col justify-end">
+                <div className="text-red-600 text-xl font-semibold">&nbsp;</div>
+                <div className="text-2xl font-bold">от {item.summNew} р</div>
+                <div className="text-sm" style={{ color: '#788497' }}>Предоплата {item.preSumm}</div>
+            </div>
+        )
+    }
+}
 
 const CardServices = ({item}) => {
-    const prices = () => {
-        if(item.summOld) {
-            return (
-                <div className="flex flex-col justify-end">
-                    <div className="text-red-600 text-xl font-semibold">{Math.round((item.summNew - item.summOld) / item.summOld * 100)}%</div>
-                    <div className="text-2xl font-bold">от {item.summNew} р</div>
-                    <div className="text-lg px-1 relative w-max" style={{ color: '#788497', textDecoration: 'line-through' }}>
-                        <div>от {item.summOld} р</div>
-                        <div className="absolute top-1/2 bottom-1/2 left-0 right-0 h-0.5 bg-red-600"></div>
-                    </div>
-                    <div className="text-sm" style={{ color: '#788497' }}>Предоплата {item.preSumm}</div>
-                </div>
-            )
-        } else {
-            return (
-                <div className="flex flex-col justify-end">
-                    <div className="text-red-600 text-xl font-semibold">&nbsp;</div>
-                    <div className="text-2xl font-bold">от {item.summNew} р</div>
-                    <div className="text-sm" style={{ color: '#788497' }}>Предоплата {item.preSumm}</div>
-                </div>
-            )
-        }
-    }
+
+    const prices = useMemo(() => {
+        return memoPrices(item)
+    }, [item])
     return (
         <div className="card flex flex-col h-full p-8 gap-6 bg-white rounded-3xl shadow-lg">
             <div className="flex flex-col gap-4 h-full justify-between">
@@ -55,7 +61,7 @@ const CardServices = ({item}) => {
                     </div>
                 </div>
                 <div className="flex items-end justify-between" style={{ minHeight: '108px' }}>
-                    {prices()}
+                    {prices}
                     <div className="flex flex-col gap-4 items-end">
                         <div className=" h-full  text-lg font-semibold" style={{ color: '#788497' }}>Срок от {item.deadline}</div>
                         <MyButton>Оформить заявку</MyButton>
