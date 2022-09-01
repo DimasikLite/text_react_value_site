@@ -18,7 +18,7 @@ function ownServices() {
                     <div className={'flex gap-4'}>
                         {buttons.map(button => {
                             return (
-                                <button className={`w-full button_chips ${chips === button.number ? 'active' : ''}`} onClick={()=>setChips(button.number)} style={{ padding: '24px', boxShadow: '0px 8px 25px rgba(109, 134, 163, 0.1)' }}>
+                                <button className={`w-full button_chips ${chips === button.number ? 'active' : ''}`} onClick={()=>setChips(button.number)} style={{ padding: '24px', boxShadow: '0px 8px 25px rgba(109, 134, 163, 0.1)' }}  key={button.number}>
                                     {button.name}
                                 </button>
                             )

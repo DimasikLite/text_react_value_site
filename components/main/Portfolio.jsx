@@ -248,7 +248,7 @@ function portfolio() {
                     <div className={'flex gap-6'}>
                         {buttons.map(button => {
                             return (
-                                <button className={`w-full button_portfolio ${chips === button.number ? 'active' : ''}`} onClick={()=>setChips(button.number)}>
+                                <button className={`w-full button_portfolio ${chips === button.number ? 'active' : ''}`} onClick={()=>setChips(button.number)} key={button.number}>
                                     {button.name}
                                 </button>
                             )
@@ -260,7 +260,7 @@ function portfolio() {
                                 <div className={['gap-4 grid listPortfolio grid_shell_listPortfolio grid-shell-3', `${chips === ind ? 'active' : ''}`].join(' ')} key={ind}>
                                     {items[ind].map(item => {
                                         return (
-                                            <CardPortfolio item={item} key={`${item.title} + ${ind}`}/>
+                                            <CardPortfolio item={item} key={`${item.title} ${ind} ${Math.random()}`}/>
                                         )
                                     })}
                                 </div>
