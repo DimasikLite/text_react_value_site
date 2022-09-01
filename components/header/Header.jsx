@@ -1,6 +1,6 @@
 import Logo from './Logo';
 import MainMenu from './MainMenu';
-import MyButton from '../UI/MyButton';
+import MyButton from '@components/UI/MyButton';
 import React, { useState } from 'react';
 
 function header() {

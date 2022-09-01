@@ -1,4 +1,4 @@
-import Pen from './images/Pen'
+import Pen from '@assets/images/Pen'
 
 
 function titleBanner() {

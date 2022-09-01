@@ -1,4 +1,4 @@
-import LineBlocks from '../main/images/LineBlocks'
+import LineBlocks from '@assets/images/LineBlocks'
 
 const blockWithLine = ({title, children}) => {
     return (

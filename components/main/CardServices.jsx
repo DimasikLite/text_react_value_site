@@ -1,4 +1,4 @@
-import MyButton from '../UI/MyButton'
+import MyButton from '@components/UI/MyButton'
 
 const CardServices = ({item}) => {
     const prices = () => {

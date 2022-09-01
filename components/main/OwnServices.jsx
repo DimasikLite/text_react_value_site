@@ -1,134 +1,11 @@
-import BlockWithLine from "../anyElems/BlockWithLine";
-import CardServices from "../main/CardServices";
+import BlockWithLine from "@components/elements/BlockWithLine";
+import CardServices from "@components/main/CardServices";
 import React, { useState } from 'react';
+import {buttons, items} from '@core/constants/my_services'
 
 
 function ownServices() {
     const [chips, setChips] = useState('one');
-    const buttons = [
-        {name: 'Дизайн + сайт на тильде', number: 'one'},
-        {name: 'Дизайн сайта', number: 'two'},
-        {name: 'Брендинг', number: 'three'},
-        {name: 'Оформление', number: 'four'},
-    ]
-    const items = {
-        one: [
-            {
-                title: 'Лендинг',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '12 дней',
-                summOld: 25000,
-                summNew: 20000,
-                preSumm: '50%'
-            },
-            {
-                title: 'Многостраничный сайт',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '18 дней',
-                summOld: null,
-                summNew: 29900,
-                preSumm: '50%'
-            },
-            {
-                title: 'Интернет магазин',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '12 дней',
-                summOld: null,
-                summNew: 45000,
-                preSumm: '50%'
-            },
-        ],
-        two: [
-            {
-                title: 'Лендинг',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '12 дней',
-                summOld: 15000,
-                summNew: 9590,
-                preSumm: '50%'
-            },
-            {
-                title: 'Многостраничный сайт',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '18 дней',
-                summOld: null,
-                summNew: 29900,
-                preSumm: '50%'
-            },
-            {
-                title: 'Интернет магазин',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '12 дней',
-                summOld: null,
-                summNew: 45000,
-                preSumm: '50%'
-            },
-        ],
-        three: [
-            {
-                title: 'Разработка фирменного стиля',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '12 дней',
-                summOld: 25000,
-                summNew: 20000,
-                preSumm: '50%'
-            },
-            {
-                title: 'Логотип «Эскиз»',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '18 дней',
-                summOld: null,
-                summNew: 29900,
-                preSumm: '50%'
-            },
-            {
-                title: 'Логотип «Начальный»',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '12 дней',
-                summOld: 25000,
-                summNew: 20000,
-                preSumm: '50%'
-            },
-            {
-                title: 'Логотип «Расширенный»',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '18 дней',
-                summOld: null,
-                summNew: 29900,
-                preSumm: '50%'
-            },
-        ],
-        four: [
-            {
-                title: 'Лендинг',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '12 дней',
-                summOld: 25000,
-                summNew: 20000,
-                preSumm: '50%'
-            },
-            {
-                title: 'Многостраничный сайт',
-                inSum: ['Анализ конкурентов', 'Разработка дизайна', 'Favicon для сайта', 'Верстка сайта'],
-                other: ['Домен и хостинг', 'Копирайтинг', 'Правки'],
-                deadline: '18 дней',
-                summOld: null,
-                summNew: 29900,
-                preSumm: '50%'
-            },
-        ],
-    }
     return (
         <BlockWithLine title={'Услуги'}>
             <div className="flex flex-col gap-24 mb-4">
@@ -137,7 +14,7 @@ function ownServices() {
                     <div className="text-sm" style={{ maxWidth: '472px' }}>Вот вам яркий пример современных тенденций — перспективное планирование, в своём классическом</div>
                 </div>
                 <div className={'flex flex-col gap-8'}>
-                    <div>Выберите направление услуги</div>
+                    <div className="text-2xl font-semibold">Выберите направление услуги</div>
                     <div className={'flex gap-4'}>
                         {buttons.map(button => {
                             return (
