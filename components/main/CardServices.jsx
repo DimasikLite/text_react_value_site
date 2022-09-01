@@ -27,9 +27,14 @@ const memoPrices = (item) => {
 
 const CardServices = ({item}) => {
 
+
+
     const prices = useMemo(() => {
         return memoPrices(item)
     }, [item])
+
+
+
     return (
         <div className="card flex flex-col h-full p-8 gap-6 bg-white rounded-3xl shadow-lg">
             <div className="flex flex-col gap-4 h-full justify-between">
